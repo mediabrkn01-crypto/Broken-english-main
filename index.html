@@ -591,8 +591,8 @@ const LOGO3D_CONFIG = {
       .forEach(el => el.classList.add('in'));
     heading.removeEventListener('mouseover', playOnce);
   }
-  heading.addEventListener('mouseover', playOnce);
-  window.addEventListener('DOMContentLoaded', () => setTimeout(playOnce, 300));
+  const logo3d = document.getElementById('heroLogo');
+  if(logo3d) logo3d.addEventListener('mouseover', playOnce);
 })();
 
 // build waveform bars procedurally (signature motif, no imagery)
