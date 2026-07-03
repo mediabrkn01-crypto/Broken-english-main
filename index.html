@@ -547,6 +547,11 @@ const LOGO3D_CONFIG = {
   mv.style.width = c.width;
   mv.style.height = c.height;
   mv.style.background = c.background;
+
+  // remember default camera position, snap back to it on mouseleave
+  let defaultOrbit = null;
+  mv.addEventListener('load', () => { defaultOrbit = mv.getCameraOrbit ? mv.getCameraOrbit().toString() : null; });
+  mv.addEventListener('mouseleave', () => { if(defaultOrbit) mv.cameraOrbit = defaultOrbit; });
 })();
 
 // Split-text reveal for the hero: "India's English Revolution" (eyebrow) and
