@@ -546,7 +546,7 @@ const LOGO3D_CONFIG = {
   mv.setAttribute('shadow-intensity', c.shadowIntensity);
   if(c.cameraOrbit) mv.setAttribute('camera-orbit', c.cameraOrbit);
   if(c.fieldOfView) mv.setAttribute('field-of-view', c.fieldOfView);
-  mv.setAttribute('interaction-prompt', c.cameraControls ? 'auto' : 'none');
+  mv.setAttribute('interaction-prompt', 'none');
   mv.style.width = c.width;
   mv.style.height = c.height;
   mv.style.background = c.background;
@@ -592,6 +592,7 @@ const LOGO3D_CONFIG = {
     heading.removeEventListener('mouseover', playOnce);
   }
   heading.addEventListener('mouseover', playOnce);
+  window.addEventListener('DOMContentLoaded', () => setTimeout(playOnce, 300));
 })();
 
 // build waveform bars procedurally (signature motif, no imagery)
